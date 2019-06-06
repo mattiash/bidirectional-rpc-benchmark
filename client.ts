@@ -3,8 +3,8 @@ import * as rpc from 'bidirectional-rpc'
 
 const SERVER_DELAY = 150
 const NUM_REQUESTS = 1500
-const THREADS = 15
-const CLIENTS = 20
+const OUTSTANDING_REQUESTS_PER_CONNECTION = 15
+const CONNECTIONS = 20
 
 let requests = NUM_REQUESTS
 
@@ -58,7 +58,7 @@ async function thread(client: rpc.RPCClient) {
     }
 }
 async function run() {
-    for (let c = 0; c < CLIENTS; c++) {
+    for (let c = 0; c < CONNECTIONS; c++) {
         connect(
             ip,
             port,
@@ -71,7 +71,7 @@ async function run() {
     const start = Date.now()
     let promises = new Array<Promise<void>>()
     for (let client of clients) {
-        for (let t = 0; t < THREADS; t++) {
+        for (let t = 0; t < OUTSTANDING_REQUESTS_PER_CONNECTION; t++) {
             promises.push(thread(client))
         }
     }

@@ -1,7 +1,7 @@
 {
-    "name": "docker-typescript-sample",
+    "name": "bidirectional-rpc-benchmark",
     "version": "1.0.0",
-    "description": "Sample project for running typescript code in docker",
+    "description": "Benchmark the bidirectional-rpc module",
     "main": "build/index.js",
     "scripts": {
         "test": "multi-tape build/test/test-*.js",
@@ -15,5 +15,9 @@
         "multi-tape": "^1.2.1",
         "purple-tape": "^2.0.1",
         "typescript": "^3.2.2"
+    },
+    "dependencies": {
+        "bidirectional-rpc": "^3.2.0",
+        "source-map-support": "^0.5.12"
     }
 }

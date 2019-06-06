@@ -3,7 +3,7 @@ import * as rpc from 'bidirectional-rpc'
 
 const SERVER_DELAY = 150
 const NUM_REQUESTS = 1500
-const THREADS = 10
+const THREADS = 15
 const CLIENTS = 20
 
 let requests = NUM_REQUESTS
